@@ -1,0 +1,208 @@
+
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 计算器容器 */
+.calculator-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 计算器主体 */
+.calculator {
+    background: #2d3748;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    max-width: 350px;
+    width: 100%;
+}
+
+/* 显示屏样式 */
+.display {
+    margin-bottom: 20px;
+    background: #1a202c;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#display-screen {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: right;
+    outline: none;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+}
+
+/* 按钮网格布局 */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 15px;
+    height: 400px;
+}
+
+/* 基本按钮样式 */
+.btn {
+    border: none;
+    border-radius: 12px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+    user-select: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 数字按钮样式 */
+.btn.number {
+    background: linear-gradient(145deg, #4a5568, #2d3748);
+    color: #ffffff;
+}
+
+.btn.number:hover {
+    background: linear-gradient(145deg, #5a6578, #3d4758);
+}
+
+/* 运算符按钮样式 */
+.btn.operator {
+    background: linear-gradient(145deg, #ed8936, #dd6b20);
+    color: #ffffff;
+}
+
+.btn.operator:hover {
+    background: linear-gradient(145deg, #fd9946, #ed7b30);
+}
+
+/* 等号按钮样式 */
+.btn.equals {
+    background: linear-gradient(145deg, #48bb78, #38a169);
+    color: #ffffff;
+    grid-row: span 2;
+}
+
+.btn.equals:hover {
+    background: linear-gradient(145deg, #58cb88, #48b179);
+}
+
+/* 清除按钮样式 */
+.btn.clear {
+    background: linear-gradient(145deg, #e53e3e, #c53030);
+    color: #ffffff;
+}
+
+.btn.clear:hover {
+    background: linear-gradient(145deg, #f54e4e, #d53040);
+}
+
+/* 小数点按钮样式 */
+.btn.decimal {
+    background: linear-gradient(145deg, #4a5568, #2d3748);
+    color: #ffffff;
+}
+
+.btn.decimal:hover {
+    background: linear-gradient(145deg, #5a6578, #3d4758);
+}
+
+/* 数字0按钮特殊样式 */
+.btn.zero {
+    grid-column: span 2;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .calculator {
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    #display-screen {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        font-size: 1.2rem;
+    }
+    
+    .buttons {
+        height: 350px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    #display-screen {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        font-size: 1rem;
+    }
+    
+    .buttons {
+        height: 320px;
+        gap: 8px;
+    }
+}
+
+/* 按钮按下效果 */
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* 错误状态样式 */
+.error {
+    color: #e53e3e !important;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+}

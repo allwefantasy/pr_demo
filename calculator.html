@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 计算器</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <!-- 显示屏 -->
+            <div class="display">
+                <input type="text" id="display-screen" readonly value="0">
+            </div>
+            
+            <!-- 按钮区域 -->
+            <div class="buttons">
+                <!-- 第一行：清除和运算符 -->
+                <button class="btn clear" onclick="clearDisplay()">C</button>
+                <button class="btn operator" onclick="inputOperator('/')">/</button>
+                <button class="btn operator" onclick="inputOperator('*')">×</button>
+                <button class="btn operator" onclick="deleteLast()">⌫</button>
+                
+                <!-- 第二行：数字7-9和减法 -->
+                <button class="btn number" onclick="inputNumber('7')">7</button>
+                <button class="btn number" onclick="inputNumber('8')">8</button>
+                <button class="btn number" onclick="inputNumber('9')">9</button>
+                <button class="btn operator" onclick="inputOperator('-')">-</button>
+                
+                <!-- 第三行：数字4-6和加法 -->
+                <button class="btn number" onclick="inputNumber('4')">4</button>
+                <button class="btn number" onclick="inputNumber('5')">5</button>
+                <button class="btn number" onclick="inputNumber('6')">6</button>
+                <button class="btn operator" onclick="inputOperator('+')">+</button>
+                
+                <!-- 第四行：数字1-3和等号 -->
+                <button class="btn number" onclick="inputNumber('1')">1</button>
+                <button class="btn number" onclick="inputNumber('2')">2</button>
+                <button class="btn number" onclick="inputNumber('3')">3</button>
+                <button class="btn equals" onclick="calculate()">=</button>
+                
+                <!-- 第五行：数字0和小数点 -->
+                <button class="btn number zero" onclick="inputNumber('0')">0</button>
+                <button class="btn decimal" onclick="inputDecimal()">.</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="calculator.js"></script>
+</body>
+</html>
